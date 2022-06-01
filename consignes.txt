@@ -1,0 +1,4 @@
+ajout de la tâche dans le champ prévu
+afficher ce qui se trouve dans chaque tâche
+système de filtre
+le bouton bleu rend la tâche en vert

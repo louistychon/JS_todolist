@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <section id="global">
+            <h1>Todolist</h1>
+            <div class="container">
+                <div class="row1">
+                    <p>Ajouter une tâche :</p>
+                    <input type="text" id="tachesadd">
+                    <button class="bluebutton" id="ajout" onclick="ajouter()">Ajouter</button>
+                </div>
+                <div class="row2">
+                    <button class="bluebutton">À faire</button>
+                    <button class="bluebutton">Terminé</button>
+                    <button class="bluebutton">Tous</button>
+                </div>
+                <div class="row3" id="row3">
+                    <div class="element">
+                        <div class="elementchild">
+                            <p>exemple</p>
+                        </div>
+                        <div class="elementchild">
+                            <div><i class="fa-solid fa-v"></i></div>
+                            <div><i class="fa-solid fa-file-pen"></i></div>
+                            <div><i class="fa-solid fa-dumpster"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+    <script src="main.js"></script>
+</body>
+
+</html>
