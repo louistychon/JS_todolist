@@ -114,6 +114,7 @@ let afaire =document.getElementById("filterToDo")
 let finished = document.getElementById("finished")
 let showall = document.getElementById("showAll")
 
+
 afaire.addEventListener("click", function (event) {
     elements = document.querySelectorAll(".element")
     console.log(elements)
