@@ -7,7 +7,6 @@ body {
     margin: auto;
 }
 
-
 h1 {
     background-color: skyblue;
     width: 80%;
@@ -79,16 +78,20 @@ h1 {
     justify-content: space-between;
 }
 
-i:nth-child(3) {
+.fa-trash-can {
     color: red;
 }
 
-i:nth-child(2) {
+.fa-file-pen {
     color: rgb(201, 201, 24);
 
 }
 
-i:nth-child(1) {
+.fa-circle-check {
     color: rgb(67, 162, 193);
 
+}
+
+.fa-floppy-disk{
+    color: rgb(201, 201, 24);
 }

@@ -1,10 +1,15 @@
-//get containers
+//create selectors for each containers
 
 let container = document.getElementById("container")
 let create_task = document.getElementById('tachesadd');
-let row3 = document.getElementById('row3')
-let section = document.getElementById('global')
 let row1 = document.getElementsByClassName('row1')[0]
+let row3 = document.getElementsByClassName('row3')[0]
+
+//select 3 buttons filters
+
+let afaire = document.getElementById("filterToDo")
+let finished = document.getElementById("finished")
+let showall = document.getElementById("showAll")
 
 //function create a new task
 function ajouter() {
@@ -15,7 +20,6 @@ function ajouter() {
         p2.style.color = "red"
         create_task.focus()
     } else {
-        p2.style.display = "none"
         elementchild0 = document.createElement('div')
         elementchild = document.createElement('div')
         p = document.createElement('p')
@@ -31,25 +35,17 @@ function ajouter() {
         div.appendChild(elementchild)
         p.innerText = create_task.value
         elementchild.appendChild(i)
-        i.classList.add("fa-solid")
-        i.classList.add("fa-circle-check")
+        i.classList.add("fa-solid", "fa-circle-check")
         elementchild.appendChild(i2)
-        i2.classList.add("fa-solid")
-        i2.classList.add("fa-file-pen")
+        i2.classList.add("fa-solid", "fa-file-pen")
         elementchild.appendChild(i3)
-        i3.classList.add("fa-solid")
-        i3.classList.add("fa-trash-can")
+        i3.classList.add("fa-solid", "fa-trash-can")
         row3.appendChild(div)
+        //transfer value to the 3 icons functions
         done(i, div)
         destroy(i3, div)
         edit(i, i2, i3, div, p, elementchild0, elementchild)
-        create_task.focus()
-
-        //filters on top right
-        // filterToDo(div)
-        // filterFinished(div)
-        // showAll(div)
-
+        create_task.focus() //get the focus back on the input
     }
 }
 
@@ -62,16 +58,12 @@ function destroy(i3, div) {
 //changeColor of task when done
 function done(i, div) {
     i.addEventListener("click", () => {
-        changeColor(div)
+        if (div.style.backgroundColor == "") {
+            div.style.backgroundColor = "lightgreen"
+        } else {
+            div.style.backgroundColor = ""
+        }
     })
-}
-
-function changeColor(div) {
-    if (div.style.backgroundColor == "") {
-        div.style.backgroundColor = "lightgreen"
-    } else {
-        div.style.backgroundColor = ""
-    }
 }
 
 //edit task name
@@ -80,25 +72,20 @@ function edit(i, i2, i3, div, p, elementchild0, elementchild) {
         elementchild0.removeChild(p)
         i4 = document.createElement('i')
         elementchild.appendChild(i4)
-        i4.classList.add("fa-solid")
-        i4.classList.add("fa-floppy-disk")
+        i4.classList.add("fa-solid", "fa-floppy-disk")
         i4.style.display = "block"
         i4.style.margin = "auto"
-        i.style.display = "none"
-        i2.style.display = "none"
-        i3.style.display = "none"
+        i.style.display = "none", i2.style.display = "none", i3.style.display = "none";
         newinput = document.createElement("input")
         elementchild0.appendChild(newinput)
         newinput.focus()
         elementchild0.appendChild(p)
         p.innerText = newinput.value
-        i4.addEventListener("click", function (event) {
+        i4.addEventListener("click", () =>{
             elementchild0.removeChild(newinput)
             p.innerText = newinput.value
             i4.style.display = "none"
-            i.style.display = "block"
-            i2.style.display = "block"
-            i3.style.display = "block"
+            i.style.display = "block", i2.style.display = "block", i3.style.display = "block"
         })
 
         newinput.addEventListener("keypress", function (event) {
@@ -106,22 +93,14 @@ function edit(i, i2, i3, div, p, elementchild0, elementchild) {
                 elementchild0.removeChild(newinput)
                 p.innerText = newinput.value
                 i4.style.display = "none"
-                i.style.display = "block"
-                i2.style.display = "block"
-                i3.style.display = "block"
+                i.style.display = "block", i2.style.display = "block", i3.style.display = "block"
             }
         })
     })
 }
 
-let afaire = document.getElementById("filterToDo")
-let finished = document.getElementById("finished")
-let showall = document.getElementById("showAll")
-
-
 afaire.addEventListener("click", function (event) {
     elements = document.querySelectorAll(".element")
-    console.log(elements)
     elements.forEach(element => {
         if (element.style.backgroundColor == "lightgreen") {
             element.style.display = "none"
@@ -131,7 +110,7 @@ afaire.addEventListener("click", function (event) {
     });
 })
 
-finished.addEventListener("click", function (event) {
+finished.addEventListener("click", () => {
     elements = document.querySelectorAll(".element")
     elements.forEach(element => {
         if (element.style.backgroundColor != "lightgreen") {
@@ -142,7 +121,7 @@ finished.addEventListener("click", function (event) {
     });
 })
 
-showall.addEventListener("click", function (event) {
+showall.addEventListener("click", () => {
     elements = document.querySelectorAll(".element")
     elements.forEach(element => {
         element.style.display = "flex"
