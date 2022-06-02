@@ -87,7 +87,6 @@ function edit(i, i2, i3, div, p, elementchild0, elementchild) {
         newinput.focus()
         elementchild0.appendChild(p)
         p.innerText = newinput.value
-
         i4.addEventListener("click",  function (event){
             elementchild0.removeChild(newinput)
             p.innerText = newinput.value
@@ -143,8 +142,6 @@ finished.addEventListener("click", function (event) {
 showall.addEventListener("click", function (event) {
     elements = document.querySelectorAll(".element")
     elements.forEach(element => {
-        if(element.style.backgroundColor != "lightgreen"){
             element.style.display = "flex"
-        } 
     });
 })
