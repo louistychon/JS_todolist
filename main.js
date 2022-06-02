@@ -37,7 +37,13 @@ function ajouter() {
         row3.appendChild(div)
         done(i, div)
         destroy(i3, div)
-        edit(i, i2, i3, div, p, elementchild0)
+        edit(i, i2, i3, div, p, elementchild0, elementchild)
+        
+//filters on top right
+        // filterToDo(div)
+        // filterFinished(div)
+        // showAll(div)
+        
     }
 }
 
@@ -63,20 +69,80 @@ function changeColor(div) {
 }
 
 //edit task name
-function edit(i, i2, i3, div, p, elementchild0) {
+function edit(i, i2, i3, div, p, elementchild0, elementchild) {
     i2.addEventListener("click", () => {
         elementchild0.removeChild(p)
+        i4 = document.createElement('i')
+        elementchild.appendChild(i4)
+        i4.classList.add("fa-solid")
+        i4.classList.add("fa-floppy-disk")
+        i4.style.display = "block"
+        i4.style.margin = "auto"
+        i.style.display = "none"
+        i2.style.display = "none"
+        i3.style.display = "none"
         newinput = document.createElement("input")
         elementchild0.appendChild(newinput)
         newinput.focus()
         elementchild0.appendChild(p)
         p.innerText = newinput.value
+
+        i4.addEventListener("click",  function (event){
+            elementchild0.removeChild(newinput)
+            p.innerText = newinput.value
+            i4.style.display = "none"
+            i.style.display = "block"
+            i2.style.display = "block"
+            i3.style.display = "block"
+        })
+
         newinput.addEventListener("keypress", function (event) {
             if (event.key === "Enter") {
                 elementchild0.removeChild(newinput)
                 p.innerText = newinput.value
+                i4.style.display = "none"
+                i.style.display = "block"
+                i2.style.display = "block"
+                i3.style.display = "block"
             }
         })
     })
 }
 
+let afaire =document.getElementById("filterToDo")
+let finished = document.getElementById("finished")
+let showall = document.getElementById("showAll")
+
+afaire.addEventListener("click", function (event) {
+    elements = document.querySelectorAll(".element")
+    console.log(elements)
+    elements.forEach(element => {
+        if(element.style.backgroundColor == "lightgreen"){
+            element.style.display = "none"
+        }
+        else{
+            element.style.display = "flex"
+        }
+    });
+})
+
+finished.addEventListener("click", function (event) {
+    elements = document.querySelectorAll(".element")
+    elements.forEach(element => {
+        if(element.style.backgroundColor != "lightgreen"){
+            element.style.display = "none"
+        }
+        else{
+            element.style.display = "flex"
+        }
+    });
+})
+
+showall.addEventListener("click", function (event) {
+    elements = document.querySelectorAll(".element")
+    elements.forEach(element => {
+        if(element.style.backgroundColor != "lightgreen"){
+            element.style.display = "flex"
+        } 
+    });
+})
