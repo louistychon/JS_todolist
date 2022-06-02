@@ -2,15 +2,20 @@
 
 let container = document.getElementById("container")
 let create_task = document.getElementById('tachesadd');
-let list_tasks = [];
 let row3 = document.getElementById('row3')
 let section = document.getElementById('global')
+let row1 = document.getElementsByClassName('row1')[0]
 
 //function create a new task
 function ajouter() {
     if (create_task.value == "") {
-        create_task.value = "Entrez une tâche valide svp"
+        p2 = document.createElement('p')
+        row1.appendChild(p2)
+        p2.innerText = "Entrez une tâche valide svp"
+        p2.style.color = "red"
+        create_task.focus()
     } else {
+        p2.style.display = "none"
         elementchild0 = document.createElement('div')
         elementchild = document.createElement('div')
         p = document.createElement('p')
@@ -39,12 +44,12 @@ function ajouter() {
         destroy(i3, div)
         edit(i, i2, i3, div, p, elementchild0, elementchild)
         create_task.focus()
-        
-//filters on top right
+
+        //filters on top right
         // filterToDo(div)
         // filterFinished(div)
         // showAll(div)
-        
+
     }
 }
 
@@ -87,7 +92,7 @@ function edit(i, i2, i3, div, p, elementchild0, elementchild) {
         newinput.focus()
         elementchild0.appendChild(p)
         p.innerText = newinput.value
-        i4.addEventListener("click",  function (event){
+        i4.addEventListener("click", function (event) {
             elementchild0.removeChild(newinput)
             p.innerText = newinput.value
             i4.style.display = "none"
@@ -109,7 +114,7 @@ function edit(i, i2, i3, div, p, elementchild0, elementchild) {
     })
 }
 
-let afaire =document.getElementById("filterToDo")
+let afaire = document.getElementById("filterToDo")
 let finished = document.getElementById("finished")
 let showall = document.getElementById("showAll")
 
@@ -118,10 +123,9 @@ afaire.addEventListener("click", function (event) {
     elements = document.querySelectorAll(".element")
     console.log(elements)
     elements.forEach(element => {
-        if(element.style.backgroundColor == "lightgreen"){
+        if (element.style.backgroundColor == "lightgreen") {
             element.style.display = "none"
-        }
-        else{
+        } else {
             element.style.display = "flex"
         }
     });
@@ -130,10 +134,9 @@ afaire.addEventListener("click", function (event) {
 finished.addEventListener("click", function (event) {
     elements = document.querySelectorAll(".element")
     elements.forEach(element => {
-        if(element.style.backgroundColor != "lightgreen"){
+        if (element.style.backgroundColor != "lightgreen") {
             element.style.display = "none"
-        }
-        else{
+        } else {
             element.style.display = "flex"
         }
     });
@@ -142,6 +145,6 @@ finished.addEventListener("click", function (event) {
 showall.addEventListener("click", function (event) {
     elements = document.querySelectorAll(".element")
     elements.forEach(element => {
-            element.style.display = "flex"
+        element.style.display = "flex"
     });
 })
