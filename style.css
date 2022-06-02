@@ -83,3 +83,11 @@ h1{
     color:blue;
 }
 
+.display-none{
+    display:none;
+}
+
+.display-block{
+    display:block;
+}
+
