@@ -1,5 +1,5 @@
 body{
-    background-color:grey;
+    background-color:lightgrey;
 }
 
 #global{
@@ -37,13 +37,14 @@ h1{
     display:flex;
     justify-content: flex-end;
     margin-top: 10px;
-
+    width:97%;
 }
 
 .row3{
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-bottom: 15px;
 }
 
 .bluebutton{
@@ -51,6 +52,7 @@ h1{
     background-color:blue;
     border: none;
     border-radius:5%;
+    margin-left: 5px;
     height:20px;
 }
 
@@ -77,9 +79,18 @@ h1{
     justify-content: space-between;
 }
 
+i:nth-child(3){
+    color:red;
 
+}
 
-.elementchild:nth-child(1) > i:nth-child(0){
-    color:blue;
+i:nth-child(2){
+    color:rgb(201, 201, 24);
+    
+}
+
+i:nth-child(1){
+    color:rgb(67, 162, 193);
+    
 }
 

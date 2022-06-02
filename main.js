@@ -27,17 +27,18 @@ function ajouter() {
         p.innerText = create_task.value
         elementchild.appendChild(i)
         i.classList.add("fa-solid")
-        i.classList.add("fa-v")
+        i.classList.add("fa-circle-check")
         elementchild.appendChild(i2)
         i2.classList.add("fa-solid")
         i2.classList.add("fa-file-pen")
         elementchild.appendChild(i3)
         i3.classList.add("fa-solid")
-        i3.classList.add("fa-dumpster")
+        i3.classList.add("fa-trash-can")
         row3.appendChild(div)
         done(i, div)
         destroy(i3, div)
         edit(i, i2, i3, div, p, elementchild0, elementchild)
+        create_task.focus()
         
 //filters on top right
         // filterToDo(div)
